@@ -64,61 +64,50 @@ In this example, most of the nodes are interchangable: they're full enough that 
 
 The goal is to move the data in the top right, `G`, to the node in parentheses. To do this, we can issue some commands to the grid and rearrange the data:
 
-- Move data from `node-y0-x1` to `node-y1-x1`, leaving node `node-y0-x1` empty:
+- Move data from `node-y0-x1` to `node-y1-x1`, leaving node `node-y0-x1` empty:```
+(.) _ G
+ . . .
+ # . .
+```
 
-    ```
-    (.) _ G
-    . . .
-    # . .
-    ```
+Move the goal data from `node-y0-x2` to `node-y0-x1`:```
+(.) G _
+ . . .
+ # . .
+```
 
-- Move the goal data from `node-y0-x2` to `node-y0-x1`:
+At this point, we're quite close. However, we have no deletion command, so we have to move some more data around. So, next, we move the data from `node-y1-x2` to `node-y0-x2`:```
+(.) G .
+ . . _
+ # . .
+```
 
-    ```
-    (.) G _
-    . . .
-    # . .
-    ```
+Move the data from `node-y1-x1` to `node-y1-x2`:```
+(.) G .
+ . _ .
+ # . .
+```
 
-- At this point, we're quite close. However, we have no deletion command, so we have to move some more data around. So, next, we move the data from `node-y1-x2` to `node-y0-x2`:
+Move the data from `node-y1-x0` to `node-y1-x1`:```
+(.) G .
+ _ . .
+ # . .
+```
 
-    ```
-    (.) G .
-    . . _
-    # . .
-    ```
+Next, we can free up space on our node by moving the data from `node-y0-x0` to `node-y1-x0`:```
+(_) G .
+ . . .
+ # . .
+```
 
-- Move the data from `node-y1-x1` to `node-y1-x2`:
 
-    ```
-    (.) G .
-    . _ .
-    # . .
-    ```
+Finally, we can access the goal data by moving the it from `node-y0-x1` to `node-y0-x0`:```
+(G) _ .
+ . . .
+ # . .
+```
 
-- Move the data from `node-y1-x0` to `node-y1-x1`:
 
-    ```
-    (.) G .
-    _ . .
-    # . .
-    ```
-
-- Next, we can free up space on our node by moving the data from `node-y0-x0` to `node-y1-x0`:
-
-    ```
-    (_) G .
-    . . .
-    # . .
-    ```
-
-- Finally, we can access the goal data by moving the it from `node-y0-x1` to `node-y0-x0`:
-
-    ```
-    (G) _ .
-    . . .
-    # . .
-    ```
 
 So, after `7` steps, we've accessed the data we want. Unfortunately, each of these moves takes time, and we need to be efficient:
 
